@@ -36,8 +36,14 @@ public class ControladorPronosticoDeVentas {
                         parseFloat(ventanaVentas.getTxtCantidadVenta());
                 pronosticoDeVentas.agregarAño(ventaAño);
                 
-                //se actualiza la tabla
-                
+                //se actualizan las tablas
+                ventanaVentas.generarTablaHistorico(
+                pronosticoDeVentas.getAnios());
+                ventanaVentas.
+                        generarTablaPronostico(
+                                pronosticoDeVentas.getPronostico(
+                                        Integer.parseInt(ventanaVentas.
+                                                getTxtCantidad())));
                 
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
@@ -46,6 +52,8 @@ public class ControladorPronosticoDeVentas {
                     pronosticoDeVentas.borrarAnio(añoABorrar);
                     
                     //se actualiza la tabla
+                    ventanaVentas.generarTablaHistorico(
+                    pronosticoDeVentas.getAnios());
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
@@ -58,10 +66,12 @@ public class ControladorPronosticoDeVentas {
                     //se actualiza la tabla
                 }
             }
-            else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostioo")){
+            else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){
                 System.out.println("btn nuevo pronostico");
                 pronosticoDeVentas.nuevoPronostico();
-                //se actualiza las tablas
+                //se actualiza la tabla
+                ventanaVentas.generarTablaHistorico(
+                pronosticoDeVentas.getAnios());
             }
         }
         

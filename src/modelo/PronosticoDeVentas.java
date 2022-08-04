@@ -100,13 +100,19 @@ public class PronosticoDeVentas {
     }
     
     public ArrayList<Float> getPronostico(int cuantosAños) {
-        ArrayList<Float> añosPronosticados = new ArrayList<>();
-        float ventaUltimoAño = anios.get(anios.size()-1).get("venta");
-        while(cuantosAños > 0){
-            float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
-            añosPronosticados.add(ventaPronosticada);
-            ventaUltimoAño = ventaPronosticada;
+        if(cuantosAños < 2){
+            cuantosAños = 2;
         }
+        ArrayList<Float> añosPronosticados = new ArrayList<>();
+        if(anios.size() > 2){
+            float ventaUltimoAño = anios.get(anios.size()-1).get("venta");
+            while(cuantosAños > 0){
+                float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
+                añosPronosticados.add(ventaPronosticada);
+                ventaUltimoAño = ventaPronosticada;
+            }
+        }
+        
         
         return añosPronosticados;
     }
