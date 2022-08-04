@@ -329,13 +329,15 @@ public class VentanaVentas extends javax.swing.JFrame {
         txtPromedio.setText(promedio);
     }
     
-    public void limpiarTablas(){
+    public void limpiarTablaHistorico(){
         int filas = tblHistorico.getRowCount();
         for(int i = filas -1; i >= 0; i--){
             modeloTblHistorico.removeRow(i);
         }
-        
-        filas = tblPronostico.getRowCount();
+    }
+    
+    public void limpiarTablaPromedio(){
+        int filas = tblPronostico.getRowCount();
         for(int i = filas -1; i >= 0; i--){
             modeloTblPronostico.removeRow(i);
         }
