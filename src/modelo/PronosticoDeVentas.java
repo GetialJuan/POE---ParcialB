@@ -88,6 +88,10 @@ public class PronosticoDeVentas {
                 indiceAnio++;
             }
         }
+        else if(anios.size() == 1){
+            anios.get(0).put("deltaVentas", 0f);
+            anios.get(0).put("porcentajeVariacion", 0f);
+        }
         setPromedioDeVariaciones();
     }
     
