@@ -60,8 +60,8 @@ public class PronosticoDeVentas {
         return promedioDeVariaciones;
     }
     
-    public void borrarAnio(int cualAño){
-        anios.remove(cualAño);
+    public void borrarAnio(int cualAnio){
+        anios.remove(cualAnio);
         calcularDatosDeAnios();
     }
     
