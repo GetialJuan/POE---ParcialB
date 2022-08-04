@@ -336,7 +336,7 @@ public class VentanaVentas extends javax.swing.JFrame {
         }
     }
     
-    public void generarTablaHistorico(ArrayList<HashMap<String,Float>> dato){
+    public void generarTablaHistorico(ArrayList<HashMap<String,Float>> dato, float total){
         limpiarTablaHistorico();
         int i = 1;
         for(HashMap <String,Float> map : dato){
@@ -347,6 +347,8 @@ public class VentanaVentas extends javax.swing.JFrame {
             modeloTblHistorico.addRow(fila);
             i++;
         }
+        Object[] fila = {"","","Total", Float.toString(total)};
+        modeloTblHistorico.addRow(fila);
     }
     
     public void limpiarTablaPronostico(){
@@ -375,6 +377,10 @@ public class VentanaVentas extends javax.swing.JFrame {
         float dato = Float.parseFloat
             (JOptionPane.showInputDialog(rootPane, "Digite el nuevo valor"));
         return dato; 
+    }
+    
+    public void mensajeBorrar(){
+        JOptionPane.showMessageDialog(rootPane, "Seleccione un dato para borrar");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

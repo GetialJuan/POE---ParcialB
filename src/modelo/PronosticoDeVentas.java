@@ -122,7 +122,7 @@ public class PronosticoDeVentas {
         return añosPronosticados;
     }
     
-    private float getSumaPromedios(){
+    public float getSumaPromedios(){
         return sumaPromedios;
     }
 }

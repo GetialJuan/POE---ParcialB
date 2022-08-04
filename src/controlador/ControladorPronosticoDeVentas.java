@@ -37,8 +37,9 @@ public class ControladorPronosticoDeVentas {
                 pronosticoDeVentas.agregarAño(ventaAño);
                 
                 //se actualizan las tablas
+                float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
-                pronosticoDeVentas.getAnios());
+                pronosticoDeVentas.getAnios(), total);
                 ventanaVentas.
                         generarTablaPronostico(
                                 pronosticoDeVentas.getPronostico(
@@ -52,8 +53,11 @@ public class ControladorPronosticoDeVentas {
                     pronosticoDeVentas.borrarAnio(añoABorrar);
                     
                     //se actualiza la tabla
+                    float total = pronosticoDeVentas.getSumaPromedios();
                     ventanaVentas.generarTablaHistorico(
-                    pronosticoDeVentas.getAnios());
+                    pronosticoDeVentas.getAnios(), total);
+                }else{
+                    ventanaVentas.mensajeBorrar();
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
@@ -70,8 +74,9 @@ public class ControladorPronosticoDeVentas {
                 System.out.println("btn nuevo pronostico");
                 pronosticoDeVentas.nuevoPronostico();
                 //se actualiza la tabla
+                float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
-                pronosticoDeVentas.getAnios());
+                pronosticoDeVentas.getAnios(), total);
             }
         }
         
