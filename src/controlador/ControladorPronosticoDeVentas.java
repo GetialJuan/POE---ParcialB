@@ -8,7 +8,11 @@ import vista.VentanaVentas;
 
 /**
  *
- * @author Juan
+ * Parcial B
+ * @author Juan Sebastian Getial Getial <202124644>
+ * @author Mauricio Muñoz Gutierrez <202123687>
+ * @profesor Luis Yovani Romo Portilla
+ * Clase controladora
  */
 public class ControladorPronosticoDeVentas {
     PronosticoDeVentas pronosticoDeVentas;

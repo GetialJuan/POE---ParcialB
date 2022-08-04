@@ -12,7 +12,11 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author mauricio.munoz
+ * Parcial B
+ * @author Juan Sebastian Getial Getial <202124644>
+ * @author Mauricio Muñoz Gutierrez <202123687>
+ * @profesor Luis Yovani Romo Portilla
+ * Clase que representa la interfaz grafica
  */
 public class VentanaVentas extends javax.swing.JFrame {
 

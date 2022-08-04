@@ -9,7 +9,11 @@ import java.util.HashMap;
 
 /**
  *
- * @author Juan
+ * Parcial B
+ * @author Juan Sebastian Getial Getial <202124644>
+ * @author Mauricio Muñoz Gutierrez <202123687>
+ * @profesor Luis Yovani Romo Portilla
+ * Clase que contiene la logica de calcular un pronostico de ventas
  */
 public class PronosticoDeVentas {
     //años - {ventas: ..., delta Y :Yn - Yn-1, porcentajeVariacion: (Yn - Yn-1)/Yn-1
