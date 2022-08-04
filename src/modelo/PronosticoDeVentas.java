@@ -110,7 +110,9 @@ public class PronosticoDeVentas {
                 float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
                 añosPronosticados.add(ventaPronosticada);
                 ventaUltimoAño = ventaPronosticada;
+                cuantosAños--;
             }
+            
         }
         
         
