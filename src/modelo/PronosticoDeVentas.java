@@ -68,4 +68,24 @@ public class PronosticoDeVentas {
         if(años.size() > 1){
         }
     }
+    
+    private void calcularDatosDeAños(){
+        if(años.size() > 1){
+            int indiceAño = 0;
+            for(HashMap<String,Float> año : años){
+                if(indiceAño > 0){
+                    //datos del años anterior
+                    int indiceAñoAnterior = indiceAño - 1;
+                    float ventasAnterior = años.get(indiceAñoAnterior).get("ventas");
+
+                    //se crean y añaden los datos del año nuevo
+                    float deltaVentas = año.get("ventas") - ventasAnterior;
+                    float porcentajeVariacion = deltaVentas/ventasAnterior;
+                    
+                    año.put("deltaVentas", deltaVentas);
+                    año.put("porcentajeVariacion", porcentajeVariacion);
+                }
+            }
+        }
+    }
 }
