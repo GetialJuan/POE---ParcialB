@@ -40,8 +40,8 @@ public class PronosticoDeVentas {
             anio.put("deltaVentas", deltaVentas);
             anio.put("porcentajeVariacion", porcentajeVariacion);
         }
-        
         anios.add(anio);
+        setPromedioDeVariaciones();
     }
     
     private void setPromedioDeVariaciones(){
@@ -110,6 +110,7 @@ public class PronosticoDeVentas {
                 float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
                 añosPronosticados.add(ventaPronosticada);
                 ventaUltimoAño = ventaPronosticada;
+                
                 cuantosAños--;
             }
             
