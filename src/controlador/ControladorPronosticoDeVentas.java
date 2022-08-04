@@ -110,7 +110,6 @@ public class ControladorPronosticoDeVentas {
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){
-                System.out.println("btn nuevo pronostico");
                 pronosticoDeVentas.nuevoPronostico();
                 //se actualizan las tablas
                 float total = pronosticoDeVentas.getSumaPromedios();
