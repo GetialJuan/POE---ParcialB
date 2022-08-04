@@ -42,7 +42,8 @@ public class ControladorPronosticoDeVentas {
                                 pronosticoDeVentas.getPronostico(
                                         Integer.parseInt(ventanaVentas.
                                                 getTxtCantidad())));
-                
+                ventanaVentas.setTxtPromedio(
+                pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
                 int anioABorrar = ventanaVentas.getFilaHistorico();
@@ -61,6 +62,8 @@ public class ControladorPronosticoDeVentas {
                                 pronosticoDeVentas.getPronostico(
                                         Integer.parseInt(ventanaVentas.
                                                 getTxtCantidad())));
+                    ventanaVentas.setTxtPromedio(
+                        pronosticoDeVentas.getPromedioDeVariaciones()+"");
                 }else{
                     ventanaVentas.mensajeBorrar();
                 }
@@ -79,6 +82,8 @@ public class ControladorPronosticoDeVentas {
                             pronosticoDeVentas.getPronostico(
                                         Integer.parseInt(ventanaVentas.
                                                 getTxtCantidad())));
+                        ventanaVentas.setTxtPromedio(
+                            pronosticoDeVentas.getPromedioDeVariaciones()+"");
                     }
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
@@ -97,6 +102,8 @@ public class ControladorPronosticoDeVentas {
                                 pronosticoDeVentas.getPronostico(
                                         Integer.parseInt(ventanaVentas.
                                                 getTxtCantidad())));
+                ventanaVentas.setTxtPromedio(
+                    pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
         }
         
