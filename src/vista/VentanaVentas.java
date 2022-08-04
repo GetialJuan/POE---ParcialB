@@ -15,6 +15,8 @@ public class VentanaVentas extends javax.swing.JFrame {
      */
     public VentanaVentas() {
         initComponents();
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
