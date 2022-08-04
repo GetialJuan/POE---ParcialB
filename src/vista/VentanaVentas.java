@@ -151,7 +151,7 @@ public class VentanaVentas extends javax.swing.JFrame {
 
         btnBorrar.setText("Borrar Año");
 
-        btnModificar.setText("Modifica Año");
+        btnModificar.setText("Modificar Año");
 
         btnNuevo.setText("Nuevo Pronostico");
 
@@ -352,11 +352,8 @@ public class VentanaVentas extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCantidadVenta;
     private javax.swing.JLabel lblPromedio;

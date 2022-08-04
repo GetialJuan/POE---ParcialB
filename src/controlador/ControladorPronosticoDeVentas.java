@@ -48,7 +48,7 @@ public class ControladorPronosticoDeVentas {
                     //se actualiza la tabla
                 }
             }
-            else if(e.getActionCommand().equalsIgnoreCase("modifica año")){
+            else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
                 int añoAModificar = ventanaVentas.getFilaHistorio();
                 if(añoAModificar != -1){
                     //float nuevaVenta = Float.

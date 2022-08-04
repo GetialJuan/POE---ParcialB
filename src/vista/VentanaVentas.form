@@ -230,7 +230,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnModificar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modifica A&#xf1;o"/>
+            <Property name="text" type="java.lang.String" value="Modificar A&#xf1;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnNuevo">
