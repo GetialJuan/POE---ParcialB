@@ -33,9 +33,14 @@ public class ControladorPronosticoDeVentas {
         public void actionPerformed(ActionEvent e) {
             if(e.getActionCommand().equalsIgnoreCase("agregar año")){
                 //se agrega la venta
-                float ventaAnio = Float.
+                try{
+                    float ventaAnio = Float.
                         parseFloat(ventanaVentas.getTxtCantidadVenta());
-                pronosticoDeVentas.agregarAnio(ventaAnio);
+                    pronosticoDeVentas.agregarAnio(ventaAnio);
+                } catch (Exception ex){
+                    
+                }
+                
                 
                 //se actualizan las tablas
                 float total = pronosticoDeVentas.getSumaPromedios();
@@ -99,6 +104,9 @@ public class ControladorPronosticoDeVentas {
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
                     }
+                }
+                else{
+                    ventanaVentas.mensajeErrorDato();
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){
