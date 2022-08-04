@@ -79,20 +79,6 @@ public class ControladorPronosticoDeVentas {
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
                     }
-                    //float nuevaVenta = Float.
-                    //    parseFloat(ventanaVentas.getVentaNueva());
-                    pronosticoDeVentas.modificarAnio(añoAModificar, añoAModificar);
-                    
-                    //se actualiza la tablas
-                    //se actualizan la tablas
-                    float total = pronosticoDeVentas.getSumaPromedios();
-                    ventanaVentas.generarTablaHistorico(
-                    pronosticoDeVentas.getAnios(), total);
-                    ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){

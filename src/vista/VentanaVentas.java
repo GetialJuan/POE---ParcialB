@@ -378,7 +378,7 @@ public class VentanaVentas extends javax.swing.JFrame {
         try{
         dato = Float.parseFloat
             (JOptionPane.showInputDialog(rootPane, "Digite el nuevo valor"));
-        }catch(NumberFormatException ne){
+        }catch(Exception e){
             dato = -1;
         }
         return dato; 
