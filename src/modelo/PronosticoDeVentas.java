@@ -13,79 +13,91 @@ import java.util.HashMap;
  */
 public class PronosticoDeVentas {
     //años - {ventas: ..., delta Y :Yn - Yn-1, porcentajeVariacion: (Yn - Yn-1)/Yn-1
-    private ArrayList<HashMap<String,Float>> años;
+    private ArrayList<HashMap<String,Float>> anios;
     private float promedioDeVariaciones;
     
     public PronosticoDeVentas(){
-        años = new ArrayList<>();
+        anios = new ArrayList<>();
     }
     
     public void agregarAño(float ventas){
-        HashMap<String,Float> año = new HashMap<>();
-        if(años.isEmpty()){
-            año.put("ventas", ventas);
-            año.put("deltaVentas", 0f);
-            año.put("porcentajeVariacion", 0f);
+        HashMap<String,Float> anio = new HashMap<>();
+        if(anios.isEmpty()){
+            anio.put("ventas", ventas);
+            anio.put("deltaVentas", 0f);
+            anio.put("porcentajeVariacion", 0f);
         }
         else{
-            //datos del años anterior
-            int indiceAño = años.size() -1;
-            float ventasAnterior = años.get(indiceAño).get("ventas");
+            //datos del anios anterior
+            int indiceAño = anios.size() -1;
+            float ventasAnterior = anios.get(indiceAño).get("ventas");
             
-            //se crean y añaden los datos del año nuevo
+            //se crean y añaden los datos del anio nuevo
             float deltaVentas = ventas - ventasAnterior;
             float porcentajeVariacion = deltaVentas/ventasAnterior;
             
-            año.put("ventas", ventas);
-            año.put("deltaVentas", deltaVentas);
-            año.put("porcentajeVariacion", porcentajeVariacion);
+            anio.put("ventas", ventas);
+            anio.put("deltaVentas", deltaVentas);
+            anio.put("porcentajeVariacion", porcentajeVariacion);
         }
         
-        años.add(año);
+        anios.add(anio);
     }
     
-    public void setPromedioDeVariaciones(){
+    private void setPromedioDeVariaciones(){
         float sumaVariaciones = 0;
-        float nPeriodos = años.size() -1;
-        for(HashMap<String,Float> año : años){
-            sumaVariaciones += año.get("porcentajeVariacion");
+        float nPeriodos = anios.size() -1;
+        for(HashMap<String,Float> anio : anios){
+            sumaVariaciones += anio.get("porcentajeVariacion");
+        }
+        if(nPeriodos >1){
+            promedioDeVariaciones = sumaVariaciones/nPeriodos;
         }
         
-        promedioDeVariaciones = sumaVariaciones/nPeriodos;
     }
     
-    public float promedioDeVariaciones(){
+    public float getPromedioDeVariaciones(){
         return promedioDeVariaciones;
     }
     
-    public void borrarAño(int cualAño){
-        if(!años.isEmpty()){
-            años.remove(cualAño);
-        }
+    public void borrarAnio(int cualAño){
+        anios.remove(cualAño);
+        calcularDatosDeAnios();
     }
     
-    public void modificarAño(int cualAño, float ventas){
-        if(años.size() > 1){
-        }
+    public void modificarAnio(int cualAnio, float ventas){
+        anios.get(cualAnio).put("ventas", ventas);
+        calcularDatosDeAnios();
     }
     
-    private void calcularDatosDeAños(){
-        if(años.size() > 1){
-            int indiceAño = 0;
-            for(HashMap<String,Float> año : años){
-                if(indiceAño > 0){
-                    //datos del años anterior
-                    int indiceAñoAnterior = indiceAño - 1;
-                    float ventasAnterior = años.get(indiceAñoAnterior).get("ventas");
+    private void calcularDatosDeAnios(){
+        if(anios.size() > 1){
+            int indiceAnio = 0;
+            for(HashMap<String,Float> anio : anios){
+                if(indiceAnio > 0){
+                    //datos del anios anterior
+                    int indiceAnioAnterior = indiceAnio - 1;
+                    float ventasAnterior = anios.get(indiceAnioAnterior).get("ventas");
 
-                    //se crean y añaden los datos del año nuevo
-                    float deltaVentas = año.get("ventas") - ventasAnterior;
+                    //se crean y añaden los datos del anio nuevo
+                    float deltaVentas = anio.get("ventas") - ventasAnterior;
                     float porcentajeVariacion = deltaVentas/ventasAnterior;
                     
-                    año.put("deltaVentas", deltaVentas);
-                    año.put("porcentajeVariacion", porcentajeVariacion);
+                    anio.put("deltaVentas", deltaVentas);
+                    anio.put("porcentajeVariacion", porcentajeVariacion);
                 }
+                indiceAnio++;
             }
         }
+        setPromedioDeVariaciones();
+    }
+    
+    public ArrayList<HashMap<String,Float>> getAnios(){
+        return anios;
+    }
+    
+    public void nuevoPronostico(){
+        anios.clear();
+        promedioDeVariaciones = 0f;
     }
 }
