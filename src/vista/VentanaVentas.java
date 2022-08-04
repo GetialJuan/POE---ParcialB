@@ -27,6 +27,8 @@ public class VentanaVentas extends javax.swing.JFrame {
         setTitle("Pronósticos de Ventas");
         txtPromedio.setEnabled(false);
         cargarModeloTablas();
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
     public void cargarModeloTablas() {             

@@ -27,6 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="panelPronosticoVenta" max="32767" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="panelHistorico" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -34,6 +35,15 @@
                           <Component id="panelPronosticar" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <Component id="panelHistorico" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="panelPronosticar" max="32767" attributes="0"/>
+                          <Component id="panelDatos" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> 41c3bf8240a7361a5a5393be615a55d50205f203
                       <Component id="panelControles" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>

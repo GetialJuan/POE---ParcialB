@@ -4,6 +4,8 @@
  */
 package poe.parcialb;
 
+import controlador.ControladorPronosticoDeVentas;
+
 /**
  *
  * @author Juan
@@ -14,7 +16,8 @@ public class POEParcialB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ControladorPronosticoDeVentas controladorPronosticoDeVentas = 
+                new ControladorPronosticoDeVentas();
     }
     
 }
