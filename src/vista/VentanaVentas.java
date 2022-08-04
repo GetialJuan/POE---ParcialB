@@ -4,6 +4,10 @@
  */
 package vista;
 
+import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,17 +24,31 @@ public class VentanaVentas extends javax.swing.JFrame {
      */
     public VentanaVentas() {
         initComponents();
+        setTitle("Pronósticos de Ventas");
+        txtPromedio.setEnabled(false);
         cargarModeloTablas();
     }
     
-    public void cargarModeloTablas() {
-        modeloTblHistorico.addColumn("Año");
+    public void cargarModeloTablas() {             
+        modeloTblHistorico.addColumn("Año");      
         modeloTblHistorico.addColumn("Cantidad de Ventas");
         modeloTblHistorico.addColumn("Variación");
-        modeloTblHistorico.addColumn("Porcentaje Variación");
+        modeloTblHistorico.addColumn("Porcentaje Variación");       
+        tblHistorico.getColumnModel().getColumn(0).setMaxWidth(80);     
+        tblHistorico.getColumnModel().getColumn(1).setMaxWidth(150);
+        tblHistorico.getColumnModel().getColumn(2).setMaxWidth(200);
+        tblHistorico.getColumnModel().getColumn(3).setMaxWidth(250);
+        for(int i = 0; i < modeloTblHistorico.getColumnCount(); i++){
+            tblHistorico.getColumnModel().getColumn(i).setResizable(false);
+        }
         
         modeloTblPronostico.addColumn("Año");
         modeloTblPronostico.addColumn("Pronóstico de Ventas");
+        tblPronostico.getColumnModel().getColumn(0).setMaxWidth(80);
+        tblPronostico.getColumnModel().getColumn(1).setMaxWidth(320);
+        for(int i = 0; i < modeloTblPronostico.getColumnCount(); i++){
+            tblPronostico.getColumnModel().getColumn(i).setResizable(false);
+        }
     }
 
     /**
@@ -197,13 +215,12 @@ public class VentanaVentas extends javax.swing.JFrame {
             .addGroup(panelPronosticoVentaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelPronosticoVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelPronosticoVentaLayout.createSequentialGroup()
                         .addComponent(lblPromedio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPromedio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(txtPromedio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPronosticoVentaLayout.setVerticalGroup(
             panelPronosticoVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,6 +306,41 @@ public class VentanaVentas extends javax.swing.JFrame {
                 new VentanaVentas().setVisible(true);
             }
         });
+    }
+    
+    public void agregarListenersBtns(ActionListener aL){
+        btnAgregar.addActionListener(aL);
+        btnBorrar.addActionListener(aL);
+        btnModificar.addActionListener(aL);
+        btnNuevo.addActionListener(aL);
+    }
+    
+    public String getTxtCantidadVenta(){
+        return txtCantidadVenta.getText();
+    }
+    
+    public String getTxtCantidad(){
+        return txtCantidad.getText();
+    }
+    
+    public void setTxtPromedio(String promedio){
+        txtPromedio.setText(promedio);
+    }
+    
+    public void limpiarTablas(){
+        int filas = tblHistorico.getRowCount();
+        for(int i = filas -1; i >= 0; i--){
+            modeloTblHistorico.removeRow(i);
+        }
+        
+        filas = tblPronostico.getRowCount();
+        for(int i = filas -1; i >= 0; i--){
+            modeloTblPronostico.removeRow(i);
+        }
+    }
+    
+    public int getFilaHistorio(){
+        return tblHistorico.getSelectedRow();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
