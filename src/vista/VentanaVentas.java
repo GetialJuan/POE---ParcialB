@@ -5,6 +5,8 @@
 package vista;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -336,10 +338,34 @@ public class VentanaVentas extends javax.swing.JFrame {
         }
     }
     
-    public void limpiarTablaPromedio(){
+    public void generarTablaHistorico(ArrayList<HashMap<String,Float>> dato){
+        limpiarTablaHistorico();
+        int i = 1;
+        for(HashMap <String,Float> map : dato){
+            String ventas = Float.toString(map.get("ventas"));
+            String delta = Float.toString(map.get("deltaVentas"));
+            String porcentaje = Float.toString(map.get("porcentajeVariacion"));
+            Object[] fila = {i, ventas, delta, porcentaje};
+            modeloTblHistorico.addRow(fila);
+            i++;
+        }
+    }
+    
+    public void limpiarTablaPronostico(){
         int filas = tblPronostico.getRowCount();
         for(int i = filas -1; i >= 0; i--){
             modeloTblPronostico.removeRow(i);
+        }
+    }
+    
+    public void generarTablaPronostico(ArrayList<Float> dato){
+        limpiarTablaPronostico();
+        int i = 1;
+        for(Float ventas : dato){
+            String venta = Float.toString(ventas);
+            Object[] fila = {i,venta};
+            modeloTblPronostico.addRow(fila);
+            i++;
         }
     }
     
