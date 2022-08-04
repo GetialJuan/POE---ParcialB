@@ -21,7 +21,7 @@ public class PronosticoDeVentas {
         anios = new ArrayList<>();
     }
     
-    public void agregarAño(float ventas){
+    public void agregarAnio(float ventas){
         HashMap<String,Float> anio = new HashMap<>();
         if(anios.isEmpty()){
             anio.put("ventas", ventas);
@@ -30,8 +30,8 @@ public class PronosticoDeVentas {
         }
         else{
             //datos del anios anterior
-            int indiceAño = anios.size() -1;
-            float ventasAnterior = anios.get(indiceAño).get("ventas");
+            int indiceAnio = anios.size() -1;
+            float ventasAnterior = anios.get(indiceAnio).get("ventas");
             
             //se crean y añaden los datos del anio nuevo
             float deltaVentas = ventas - ventasAnterior;
@@ -109,21 +109,19 @@ public class PronosticoDeVentas {
         if(cuantosAños < 2){
             cuantosAños = 2;
         }
-        ArrayList<Float> añosPronosticados = new ArrayList<>();
+        ArrayList<Float> aniosPronosticados = new ArrayList<>();
         if(anios.size() > 2){
-            float ventaUltimoAño = anios.get(anios.size()-1).get("ventas");
+            float ventaUltimoAnio = anios.get(anios.size()-1).get("ventas");
             while(cuantosAños > 0){
-                float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
-                añosPronosticados.add(ventaPronosticada);
-                ventaUltimoAño = ventaPronosticada;
+                float ventaPronosticada = ventaUltimoAnio*(1+promedioDeVariaciones);
+                aniosPronosticados.add(ventaPronosticada);
+                ventaUltimoAnio = ventaPronosticada;
                 
                 cuantosAños--;
             }
             
-        }
-        
-        
-        return añosPronosticados;
+        }    
+        return aniosPronosticados;
     }
     
     public float getSumaPromedios(){
