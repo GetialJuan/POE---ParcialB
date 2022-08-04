@@ -85,6 +85,10 @@ public class PronosticoDeVentas {
                     anio.put("deltaVentas", deltaVentas);
                     anio.put("porcentajeVariacion", porcentajeVariacion);
                 }
+                else{
+                    anio.put("deltaVentas", 0f);
+                    anio.put("porcentajeVariacion", 0f);
+                }
                 indiceAnio++;
             }
         }

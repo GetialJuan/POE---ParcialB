@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -47,6 +44,8 @@ public class ControladorPronosticoDeVentas {
                 }catch(Exception ne){
                     ventanaVentas.mensajeErrorCantidad();
                 }
+                ventanaVentas.setTxtPromedio(
+                pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
                 int anioABorrar = ventanaVentas.getFilaHistorico();
@@ -67,6 +66,8 @@ public class ControladorPronosticoDeVentas {
                     }catch(Exception ne){
                         ventanaVentas.mensajeErrorCantidad();
                     }
+                    ventanaVentas.setTxtPromedio(
+                        pronosticoDeVentas.getPromedioDeVariaciones()+"");
                 }else{
                     ventanaVentas.mensajeBorrar();
                 }
@@ -88,6 +89,8 @@ public class ControladorPronosticoDeVentas {
                         }catch(Exception ne){
                             ventanaVentas.mensajeErrorCantidad();
                         }
+                        ventanaVentas.setTxtPromedio(
+                            pronosticoDeVentas.getPromedioDeVariaciones()+"");
                     }
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
@@ -108,6 +111,8 @@ public class ControladorPronosticoDeVentas {
                 }catch(Exception ne){
                     ventanaVentas.mensajeErrorCantidad();
                 }
+                ventanaVentas.setTxtPromedio(
+                    pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
         }  
     }
