@@ -8,7 +8,10 @@ import controlador.ControladorPronosticoDeVentas;
 
 /**
  *
- * @author Juan
+ * Parcial B
+ * @author Juan Sebastian Getial Getial <202124644>
+ * @author Mauricio Muñoz Gutierrez <202123687>
+ * @profesor Luis Yovani Romo Portilla
  */
 public class POEParcialB {
 
