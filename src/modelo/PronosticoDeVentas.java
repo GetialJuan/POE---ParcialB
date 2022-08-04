@@ -15,6 +15,7 @@ public class PronosticoDeVentas {
     //años - {ventas: ..., delta Y :Yn - Yn-1, porcentajeVariacion: (Yn - Yn-1)/Yn-1
     private ArrayList<HashMap<String,Float>> anios;
     private float promedioDeVariaciones;
+    private float sumaPromedios;
     
     public PronosticoDeVentas(){
         anios = new ArrayList<>();
@@ -45,12 +46,12 @@ public class PronosticoDeVentas {
     }
     
     private void setPromedioDeVariaciones(){
-        float sumaVariaciones = 0;
+        sumaPromedios = 0;
         float nPeriodos = anios.size() -1;
         for(HashMap<String,Float> anio : anios){
-            sumaVariaciones += anio.get("porcentajeVariacion");
+            sumaPromedios += anio.get("porcentajeVariacion");
         }
-        promedioDeVariaciones = sumaVariaciones/nPeriodos;
+        promedioDeVariaciones = sumaPromedios/nPeriodos;
         
     }
     
@@ -97,6 +98,7 @@ public class PronosticoDeVentas {
     public void nuevoPronostico(){
         anios.clear();
         promedioDeVariaciones = 0f;
+        sumaPromedios = 0f;
     }
     
     public ArrayList<Float> getPronostico(int cuantosAños) {
@@ -118,5 +120,9 @@ public class PronosticoDeVentas {
         
         
         return añosPronosticados;
+    }
+    
+    private float getSumaPromedios(){
+        return sumaPromedios;
     }
 }
