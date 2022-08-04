@@ -15,7 +15,7 @@ public class PronosticoDeVentas {
     //años - {ventas: ..., delta Y :Yn - Yn-1, porcentajeVariacion: (Yn - Yn-1)/Yn-1
     private ArrayList<HashMap<String,Float>> anios;
     private float promedioDeVariaciones;
-    private float totalPorcentaje;
+    private float sumaPromedios;
     
     public PronosticoDeVentas(){
         anios = new ArrayList<>();
@@ -41,15 +41,17 @@ public class PronosticoDeVentas {
             anio.put("deltaVentas", deltaVentas);
             anio.put("porcentajeVariacion", porcentajeVariacion);
         }
-        
         anios.add(anio);
+        setPromedioDeVariaciones();
     }
     
     private void setPromedioDeVariaciones(){
-        float sumaVariaciones = 0;
+        sumaPromedios = 0;
         float nPeriodos = anios.size() -1;
-        calcularTotal();
-        promedioDeVariaciones = sumaVariaciones/nPeriodos;
+        for(HashMap<String,Float> anio : anios){
+            sumaPromedios += anio.get("porcentajeVariacion");
+        }
+        promedioDeVariaciones = sumaPromedios/nPeriodos;
         
     }
     
@@ -96,7 +98,7 @@ public class PronosticoDeVentas {
     public void nuevoPronostico(){
         anios.clear();
         promedioDeVariaciones = 0f;
-        totalPorcentaje =
+        sumaPromedios = 0f;
     }
     
     public ArrayList<Float> getPronostico(int cuantosAños) {
@@ -110,6 +112,7 @@ public class PronosticoDeVentas {
                 float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
                 añosPronosticados.add(ventaPronosticada);
                 ventaUltimoAño = ventaPronosticada;
+                
                 cuantosAños--;
             }
             
@@ -119,15 +122,7 @@ public class PronosticoDeVentas {
         return añosPronosticados;
     }
     
-    public void calcularTotal(){
-        float auxTotal = 0;
-        for(HashMap <String,Float> map : anios){
-            auxTotal += map.get("porcentajeVariacion");
-        }
-        totalPorcentaje = auxTotal;
-    }
-    
-    public float getTotalPorcentaje(){
-        return totalPorcentaje;
+    private float getSumaPromedios(){
+        return sumaPromedios;
     }
 }
