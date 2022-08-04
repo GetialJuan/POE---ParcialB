@@ -41,11 +41,13 @@ public class ControladorPronosticoDeVentas {
                 float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
                 pronosticoDeVentas.getAnios(), total);
+                try{
                 ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                        generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                            Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                }catch(Exception ne){
+                    ventanaVentas.mensajeErrorCantidad();
+                }
                 ventanaVentas.setTxtPromedio(
                 pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
@@ -61,11 +63,13 @@ public class ControladorPronosticoDeVentas {
                     float total = pronosticoDeVentas.getSumaPromedios();
                     ventanaVentas.generarTablaHistorico(
                     pronosticoDeVentas.getAnios(), total);
+                    try{
                     ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                            generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                                Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                    }catch(Exception ne){
+                        ventanaVentas.mensajeErrorCantidad();
+                    }
                     ventanaVentas.setTxtPromedio(
                         pronosticoDeVentas.getPromedioDeVariaciones()+"");
                 }else{
@@ -82,10 +86,13 @@ public class ControladorPronosticoDeVentas {
                         float total = pronosticoDeVentas.getSumaPromedios();
                         ventanaVentas.generarTablaHistorico(
                         pronosticoDeVentas.getAnios(), total);
-                        ventanaVentas.generarTablaPronostico(
-                            pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                        try{
+                        ventanaVentas.
+                                generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                                    Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                        }catch(Exception ne){
+                            ventanaVentas.mensajeErrorCantidad();
+                        }
                         ventanaVentas.setTxtPromedio(
                             pronosticoDeVentas.getPromedioDeVariaciones()+"");
                     }
@@ -101,15 +108,16 @@ public class ControladorPronosticoDeVentas {
                 float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
                 pronosticoDeVentas.getAnios(), total);
+                try{
                 ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                        generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                            Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                }catch(Exception ne){
+                    ventanaVentas.mensajeErrorCantidad();
+                }
                 ventanaVentas.setTxtPromedio(
                     pronosticoDeVentas.getPromedioDeVariaciones()+"");
             }
-        }
-        
+        }  
     }
 }
