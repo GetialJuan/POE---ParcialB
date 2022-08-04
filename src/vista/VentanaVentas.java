@@ -392,6 +392,11 @@ public class VentanaVentas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Error al modificar dato");
     }
     
+    public void mensajeErrorCantidad(){
+        JOptionPane.showMessageDialog(rootPane, "Digite un número entero para "
+                + "generar el pronostico");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBorrar;

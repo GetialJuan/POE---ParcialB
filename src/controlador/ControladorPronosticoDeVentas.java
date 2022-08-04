@@ -40,12 +40,13 @@ public class ControladorPronosticoDeVentas {
                 float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
                 pronosticoDeVentas.getAnios(), total);
+                try{
                 ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
-                
+                        generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                            Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                }catch(Exception ne){
+                    ventanaVentas.mensajeErrorCantidad();
+                }
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
                 int anioABorrar = ventanaVentas.getFilaHistorico();
@@ -59,11 +60,13 @@ public class ControladorPronosticoDeVentas {
                     float total = pronosticoDeVentas.getSumaPromedios();
                     ventanaVentas.generarTablaHistorico(
                     pronosticoDeVentas.getAnios(), total);
+                    try{
                     ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                            generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                                Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                    }catch(Exception ne){
+                        ventanaVentas.mensajeErrorCantidad();
+                    }
                 }else{
                     ventanaVentas.mensajeBorrar();
                 }
@@ -78,10 +81,13 @@ public class ControladorPronosticoDeVentas {
                         float total = pronosticoDeVentas.getSumaPromedios();
                         ventanaVentas.generarTablaHistorico(
                         pronosticoDeVentas.getAnios(), total);
-                        ventanaVentas.generarTablaPronostico(
-                            pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                        try{
+                        ventanaVentas.
+                                generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                                    Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                        }catch(Exception ne){
+                            ventanaVentas.mensajeErrorCantidad();
+                        }
                     }
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
@@ -95,13 +101,14 @@ public class ControladorPronosticoDeVentas {
                 float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
                 pronosticoDeVentas.getAnios(), total);
+                try{
                 ventanaVentas.
-                        generarTablaPronostico(
-                                pronosticoDeVentas.getPronostico(
-                                        Integer.parseInt(ventanaVentas.
-                                                getTxtCantidad())));
+                        generarTablaPronostico(pronosticoDeVentas.getPronostico(
+                            Integer.parseInt(ventanaVentas.getTxtCantidad())));
+                }catch(Exception ne){
+                    ventanaVentas.mensajeErrorCantidad();
+                }
             }
-        }
-        
+        }  
     }
 }
