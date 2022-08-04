@@ -48,7 +48,7 @@ public class ControladorPronosticoDeVentas {
                 
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
-                int añoABorrar = ventanaVentas.getFilaHistorio();
+                int añoABorrar = ventanaVentas.getFilaHistorico();
                 if(añoABorrar != -1){
                     pronosticoDeVentas.borrarAnio(añoABorrar);
                     
@@ -61,7 +61,7 @@ public class ControladorPronosticoDeVentas {
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
-                int añoAModificar = ventanaVentas.getFilaHistorio();
+                int añoAModificar = ventanaVentas.getFilaHistorico();
                 if(añoAModificar != -1){
                     //float nuevaVenta = Float.
                     //    parseFloat(ventanaVentas.getVentaNueva());
