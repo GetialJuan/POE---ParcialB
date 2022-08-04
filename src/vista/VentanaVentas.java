@@ -7,9 +7,7 @@ package vista;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -372,7 +370,13 @@ public class VentanaVentas extends javax.swing.JFrame {
     public int getFilaHistorio(){
         return tblHistorico.getSelectedRow();
     }
-
+    
+    public float modificaDato(){
+        float dato = Float.parseFloat
+            (JOptionPane.showInputDialog(rootPane, "Digite el nuevo valor"));
+        return dato; 
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBorrar;
