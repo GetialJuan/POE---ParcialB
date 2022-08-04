@@ -32,9 +32,9 @@ public class ControladorPronosticoDeVentas {
         public void actionPerformed(ActionEvent e) {
             if(e.getActionCommand().equalsIgnoreCase("agregar año")){
                 //se agrega la venta
-                float ventaAño = Float.
+                float ventaAnio = Float.
                         parseFloat(ventanaVentas.getTxtCantidadVenta());
-                pronosticoDeVentas.agregarAño(ventaAño);
+                pronosticoDeVentas.agregarAnio(ventaAnio);
                 
                 //se actualizan las tablas
                 float total = pronosticoDeVentas.getSumaPromedios();
@@ -48,9 +48,12 @@ public class ControladorPronosticoDeVentas {
                 
             }
             else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
-                int añoABorrar = ventanaVentas.getFilaHistorico();
-                if(añoABorrar != -1){
-                    pronosticoDeVentas.borrarAnio(añoABorrar);
+                int anioABorrar = ventanaVentas.getFilaHistorico();
+                if(anioABorrar >= pronosticoDeVentas.getAnios().size()){
+                    //No hace nada
+                }
+                else if(anioABorrar != -1){
+                    pronosticoDeVentas.borrarAnio(anioABorrar);
                     
                     //se actualizan la tablas
                     float total = pronosticoDeVentas.getSumaPromedios();
@@ -66,15 +69,19 @@ public class ControladorPronosticoDeVentas {
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
-                int añoAModificar = ventanaVentas.getFilaHistorico();
-                if(añoAModificar != -1){
+                int anioAModificar = ventanaVentas.getFilaHistorico();
+                if(anioAModificar != -1){
                     float dato = ventanaVentas.modificarDato();
                     if(dato != -1){
                         int fila = ventanaVentas.getFilaHistorico();
                         pronosticoDeVentas.modificarAnio(fila, dato);
                         float total = pronosticoDeVentas.getSumaPromedios();
                         ventanaVentas.generarTablaHistorico(
-                        pronosticoDeVentas.getAnios(), total);                        
+                        pronosticoDeVentas.getAnios(), total);
+                        ventanaVentas.generarTablaPronostico(
+                            pronosticoDeVentas.getPronostico(
+                                        Integer.parseInt(ventanaVentas.
+                                                getTxtCantidad())));
                     }
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
