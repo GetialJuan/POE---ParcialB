@@ -50,9 +50,7 @@ public class PronosticoDeVentas {
         for(HashMap<String,Float> anio : anios){
             sumaVariaciones += anio.get("porcentajeVariacion");
         }
-        if(nPeriodos >1){
-            promedioDeVariaciones = sumaVariaciones/nPeriodos;
-        }
+        promedioDeVariaciones = sumaVariaciones/nPeriodos;
         
     }
     
@@ -99,5 +97,17 @@ public class PronosticoDeVentas {
     public void nuevoPronostico(){
         anios.clear();
         promedioDeVariaciones = 0f;
+    }
+    
+    public ArrayList<Float> getPronostico(int cuantosAños) {
+        ArrayList<Float> añosPronosticados = new ArrayList<>();
+        float ventaUltimoAño = anios.get(anios.size()-1).get("venta");
+        while(cuantosAños > 0){
+            float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
+            añosPronosticados.add(ventaPronosticada);
+            ventaUltimoAño = ventaPronosticada;
+        }
+        
+        return añosPronosticados;
     }
 }
