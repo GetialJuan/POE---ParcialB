@@ -369,18 +369,27 @@ public class VentanaVentas extends javax.swing.JFrame {
         }
     }
     
-    public int getFilaHistorio(){
+    public int getFilaHistorico(){
         return tblHistorico.getSelectedRow();
     }
     
-    public float modificaDato(){
-        float dato = Float.parseFloat
+    public float modificarDato(){
+        float dato = 0;
+        try{
+        dato = Float.parseFloat
             (JOptionPane.showInputDialog(rootPane, "Digite el nuevo valor"));
+        }catch(NumberFormatException ne){
+            dato = -1;
+        }
         return dato; 
     }
     
     public void mensajeBorrar(){
         JOptionPane.showMessageDialog(rootPane, "Seleccione un dato para borrar");
+    }
+    
+    public void mensajeErrorDato(){
+        JOptionPane.showMessageDialog(rootPane, "Error al modificar dato");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -63,11 +63,17 @@ public class ControladorPronosticoDeVentas {
             else if(e.getActionCommand().equalsIgnoreCase("modificar año")){
                 int añoAModificar = ventanaVentas.getFilaHistorico();
                 if(añoAModificar != -1){
-                    //float nuevaVenta = Float.
-                    //    parseFloat(ventanaVentas.getVentaNueva());
-                    pronosticoDeVentas.modificarAnio(añoAModificar, añoAModificar);
-                    
-                    //se actualiza la tabla
+                    float dato = ventanaVentas.modificarDato();
+                    if(dato != -1){
+                        int fila = ventanaVentas.getFilaHistorico();
+                        pronosticoDeVentas.modificarAnio(fila, dato);
+                        float total = pronosticoDeVentas.getSumaPromedios();
+                        ventanaVentas.generarTablaHistorico(
+                        pronosticoDeVentas.getAnios(), total);                        
+                    }
+                    else if(dato == -1){
+                        ventanaVentas.mensajeErrorDato();
+                    }
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){
