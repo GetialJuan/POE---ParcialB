@@ -52,10 +52,15 @@ public class ControladorPronosticoDeVentas {
                 if(añoABorrar != -1){
                     pronosticoDeVentas.borrarAnio(añoABorrar);
                     
-                    //se actualiza la tabla
+                    //se actualizan la tablas
                     float total = pronosticoDeVentas.getSumaPromedios();
                     ventanaVentas.generarTablaHistorico(
                     pronosticoDeVentas.getAnios(), total);
+                    ventanaVentas.
+                        generarTablaPronostico(
+                                pronosticoDeVentas.getPronostico(
+                                        Integer.parseInt(ventanaVentas.
+                                                getTxtCantidad())));
                 }else{
                     ventanaVentas.mensajeBorrar();
                 }
@@ -74,15 +79,34 @@ public class ControladorPronosticoDeVentas {
                     else if(dato == -1){
                         ventanaVentas.mensajeErrorDato();
                     }
+                    //float nuevaVenta = Float.
+                    //    parseFloat(ventanaVentas.getVentaNueva());
+                    pronosticoDeVentas.modificarAnio(añoAModificar, añoAModificar);
+                    
+                    //se actualiza la tablas
+                    //se actualizan la tablas
+                    float total = pronosticoDeVentas.getSumaPromedios();
+                    ventanaVentas.generarTablaHistorico(
+                    pronosticoDeVentas.getAnios(), total);
+                    ventanaVentas.
+                        generarTablaPronostico(
+                                pronosticoDeVentas.getPronostico(
+                                        Integer.parseInt(ventanaVentas.
+                                                getTxtCantidad())));
                 }
             }
             else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostico")){
                 System.out.println("btn nuevo pronostico");
                 pronosticoDeVentas.nuevoPronostico();
-                //se actualiza la tabla
+                //se actualizan las tablas
                 float total = pronosticoDeVentas.getSumaPromedios();
                 ventanaVentas.generarTablaHistorico(
                 pronosticoDeVentas.getAnios(), total);
+                ventanaVentas.
+                        generarTablaPronostico(
+                                pronosticoDeVentas.getPronostico(
+                                        Integer.parseInt(ventanaVentas.
+                                                getTxtCantidad())));
             }
         }
         
