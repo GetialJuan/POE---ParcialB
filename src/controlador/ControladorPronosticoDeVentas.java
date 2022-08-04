@@ -21,6 +21,8 @@ public class ControladorPronosticoDeVentas {
     public ControladorPronosticoDeVentas(){
         pronosticoDeVentas = new PronosticoDeVentas();
         ventanaVentas = new VentanaVentas();
+        ventanaVentas.
+                agregarListenersBtns(new ManejadorDeEventosVentanaVentas());
     }
     
     //VentanaVentas
@@ -28,6 +30,39 @@ public class ControladorPronosticoDeVentas {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().equalsIgnoreCase("agregar año")){
+                //se agrega la venta
+                float ventaAño = Float.
+                        parseFloat(ventanaVentas.getTxtCantidadVenta());
+                pronosticoDeVentas.agregarAño(ventaAño);
+                
+                //se actualiza la tabla
+                
+                
+            }
+            else if(e.getActionCommand().equalsIgnoreCase("borrar año")){
+                int añoABorrar = ventanaVentas.getFilaHistorio();
+                if(añoABorrar != -1){
+                    pronosticoDeVentas.borrarAnio(añoABorrar);
+                    
+                    //se actualiza la tabla
+                }
+            }
+            else if(e.getActionCommand().equalsIgnoreCase("modifica año")){
+                int añoAModificar = ventanaVentas.getFilaHistorio();
+                if(añoAModificar != -1){
+                    //float nuevaVenta = Float.
+                    //    parseFloat(ventanaVentas.getVentaNueva());
+                    pronosticoDeVentas.modificarAnio(añoAModificar, añoAModificar);
+                    
+                    //se actualiza la tabla
+                }
+            }
+            else if(e.getActionCommand().equalsIgnoreCase("nuevo pronostioo")){
+                System.out.println("btn nuevo pronostico");
+                pronosticoDeVentas.nuevoPronostico();
+                //se actualiza las tablas
+            }
         }
         
     }
