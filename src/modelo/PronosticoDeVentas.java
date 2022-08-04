@@ -105,12 +105,14 @@ public class PronosticoDeVentas {
         }
         ArrayList<Float> añosPronosticados = new ArrayList<>();
         if(anios.size() > 2){
-            float ventaUltimoAño = anios.get(anios.size()-1).get("venta");
+            float ventaUltimoAño = anios.get(anios.size()-1).get("ventas");
             while(cuantosAños > 0){
                 float ventaPronosticada = ventaUltimoAño*(1+promedioDeVariaciones);
                 añosPronosticados.add(ventaPronosticada);
                 ventaUltimoAño = ventaPronosticada;
+                cuantosAños--;
             }
+            
         }
         
         
